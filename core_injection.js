@@ -1,3 +1,4 @@
+var CDN = "https://cdn.jsdelivr.net/gh/rahul72925/whatsapp-add-on";
 injectScript("core/ws_hook.js"); // important to inject as early as possible
 injectOtherScripts();
 
@@ -28,7 +29,7 @@ async function injectOtherScripts() {
 function injectScript(scriptName) {
   return new Promise(function (resolve, reject) {
     var s = document.createElement("script");
-    s.src = chrome.runtime.getURL(scriptName);
+    s.src = `${CDN}/${scriptName}`;
     s.onload = function () {
       this.parentNode.removeChild(this);
       resolve(true);

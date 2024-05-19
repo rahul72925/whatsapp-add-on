@@ -98,7 +98,7 @@ async function addIconIfNeeded() {
   )[0];
   if (firstMenuItem != undefined) {
     var menuItemElem = await generateSVGElement(
-      chrome.runtime.getURL("images/incognito_gray_24_hollow_9.svg"),
+      `${CDN}/images/incognito_gray_24_hollow_9.svg`,
       "_26lC3",
       "Incognito Options",
       24,
@@ -1081,10 +1081,8 @@ function markMessageNodeDeviceIfPossible(messageNode, msgID) {
       return;
 
     var imageURL = "";
-    if (deviceType == "computer")
-      imageURL = chrome.runtime.getURL("images/computer.svg");
-    else if (deviceType == "phone")
-      imageURL = chrome.runtime.getURL("images/phone.svg");
+    if (deviceType == "computer") imageURL = `${CDN}/images/computer.svg`;
+    else if (deviceType == "phone") imageURL = `${CDN}/images/phone.svg`;
     else return;
 
     var imageElement = await generateSVGElement(
